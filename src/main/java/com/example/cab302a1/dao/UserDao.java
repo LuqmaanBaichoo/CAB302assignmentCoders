@@ -53,6 +53,34 @@ public class UserDao {
         return null;
     }
 
+    /**
+     * Retrieves a list of all users with the role 'Student'.
+     * This is used by the Teacher Review Controller to populate the student list.
+     */
+    public List<User> getAllStudents() {
+        List<User> students = new ArrayList<>();
+        // Select all fields needed by the Student constructor
+        String sql = "SELECT user_id, username, email, role, created_at FROM users WHERE role = 'Student'";
+
+        try (Connection conn = DBconnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
+
+            while (rs.next()) {
+                // Create Student objects from the results
+                students.add(new Student(
+                        rs.getInt("user_id"),
+                        rs.getString("username"),
+                        rs.getString("email"),
+                        rs.getString("role"),
+                        rs.getTimestamp("created_at")
+                ));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return students;
+    }
 
     //for debugging
     public void printAllUsers() {
@@ -128,6 +156,7 @@ public class UserDao {
         }
         return null;
     }
+
     public User login(String _email, String _password){
         if(!existsByEmail(_email)){
             System.out.printf("User not found: " + _email);

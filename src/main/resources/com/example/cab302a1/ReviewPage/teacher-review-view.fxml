@@ -21,19 +21,13 @@
 
             <Label styleClass="page-title" text="Review Page"/>
 
-            <HBox alignment="TOP_CENTER" spacing="20" HBox.hgrow="ALWAYS">
+            <HBox alignment="TOP_CENTER" spacing="20" HBox.hgrow="ALWAYS" stylesheets="@../styles.css">
 
                 <!-- Student List -->
                 <VBox prefWidth="300" spacing="10" style="-fx-background-color: #FFFFFF; -fx-padding: 10; -fx-background-radius: 8;">
                     <Label styleClass="section-title" text="Student List"/>
                     <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent;">
                         <VBox fx:id="studentListContainer" alignment="TOP_LEFT" spacing="5">
-                            <!-- Mock student buttons (can be replaced dynamically) -->
-                            <Button maxWidth="Infinity" styleClass="student-list-item" text="Name 1"/>
-                            <Button maxWidth="Infinity" styleClass="student-list-item" text="Name 2"/>
-                            <Button maxWidth="Infinity" styleClass="student-list-item" text="Name 3"/>
-                            <Button maxWidth="Infinity" styleClass="student-list-item" text="Name 4"/>
-                            <Button maxWidth="Infinity" styleClass="student-list-item" text="Name 5"/>
                         </VBox>
                     </ScrollPane>
                 </VBox>
@@ -45,9 +39,9 @@
 
                     <TableView fx:id="quizTable" VBox.vgrow="ALWAYS">
                         <columns>
-                            <TableColumn fx:id="quizNameCol" text="Quiz Name" prefWidth="250"/>
-                            <TableColumn fx:id="scoreCol" text="Score" prefWidth="150"/>
-                            <TableColumn fx:id="resultCol" text="View Result" prefWidth="120"/>
+                            <TableColumn fx:id="quizNameCol" text="Quiz Name" prefWidth="200"/>
+                            <TableColumn fx:id="scoreCol" text="Score" prefWidth="200"/>
+                            <TableColumn fx:id="resultCol" text="View Result" prefWidth="200"/>
                         </columns>
                     </TableView>
 

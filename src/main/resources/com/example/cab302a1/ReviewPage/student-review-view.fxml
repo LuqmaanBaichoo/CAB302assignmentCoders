@@ -24,36 +24,26 @@
 
     <!-- Center: Student Review Page Content -->
     <center>
-        <HBox prefHeight="750.0" prefWidth="1200.0"
-              styleClass="main-container"
-              stylesheets="@../styles.css">
+        <!-- This VBox takes up all available space in the center -->
+        <VBox alignment="TOP_CENTER" spacing="20" style="-fx-padding: 20;" VBox.vgrow="ALWAYS" BorderPane.alignment="CENTER">
 
-            <!-- Main Content -->
-            <VBox alignment="TOP_CENTER" styleClass="content-pane" spacing="20"
-                  style="-fx-background-color: #FFFFFF;"
-                  BorderPane.alignment="CENTER"
-                  prefWidth="1200.0" prefHeight="700.0">
+            <!-- Title/Label at the top of the content area -->
+            <Label styleClass="page-title" text="My Quiz Review History"/>
 
-                <padding>
-                    <Insets left="20" right="20" bottom="20"/>
-                </padding>
-                <Label styleClass="page-title" text="Review Page">
-                    <VBox.margin>
-                        <Insets top="20.0" bottom="20.0"/>
-                    </VBox.margin>
-                </Label>
+            <!-- Table Container VBox -->
+            <VBox spacing="10" VBox.vgrow="ALWAYS" style="-fx-background-color: #FFFFFF; -fx-padding: 10; -fx-background-radius: 8;">
 
-                <!-- Quiz Results Table -->
-                <TableView fx:id="quizTable" prefHeight="600" prefWidth="900" styleClass="quiz-table"
-                           >
+                <!-- TableView must have VBox.vgrow="ALWAYS" -->
+                <TableView fx:id="studentQuizTable" VBox.vgrow="ALWAYS">
                     <columns>
-                        <TableColumn fx:id="quizNameCol" text="Quiz Name" prefWidth="250"/>
-                        <TableColumn fx:id="scoreCol" text="Score" prefWidth="150"/>
-                        <TableColumn fx:id="viewResultCol" text="View Result" prefWidth="200"/>
-                        <TableColumn fx:id="feedbackCol" text="Feedback" prefWidth="200"/>
+                        <TableColumn fx:id="quizNameCol" prefWidth="200.0" text="Quiz" />
+                        <TableColumn fx:id="scoreCol" prefWidth="100.0" text="Score" />
+                        <TableColumn fx:id="feedbackCol" prefWidth="150.0" text="Feedback" />
+                        <TableColumn fx:id="resultCol" prefWidth="150.0" text="Result" />
                     </columns>
                 </TableView>
+
             </VBox>
-        </HBox>
+        </VBox>
     </center>
 </BorderPane>
